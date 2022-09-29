@@ -6,6 +6,10 @@ import { elementsParser, keysElements } from 'data/parserElements';
 const Home = () => {
 	const [name, setName] = useState('');
 	const [selected, setSelected] = useState('');
+	const [selectedElements, setSelectedElements] = useState<string[]>([]);
+	const [allElements, setAllElements] = useState<string[]>(
+		Object.keys(elementsParser)
+	);
 	const changeName = ({ target: { value } }: { target: { value: string } }) => {
 		setName(value);
 	};
@@ -25,6 +29,9 @@ const Home = () => {
 					) {
 						setName('');
 						setSelected('');
+						setSelectedElements([...selectedElements, resultName[0]]);
+						setAllElements(allElements.filter((e) => e !== resultName[0]));
+						changeSelected();
 						return { ...e, display: true };
 					}
 					return { ...e };
@@ -37,8 +44,10 @@ const Home = () => {
 		if (name) findElement(name);
 	}, [name]);
 
-	const changeSelected = (value: string) => {
-		setSelected(value);
+	const changeSelected = () => {
+		const randomElement =
+			allElements[Math.floor(Math.random() * allElements.length)];
+		setSelected(randomElement);
 	};
 
 	useEffect(() => {
@@ -46,6 +55,7 @@ const Home = () => {
 			const response = await fetch('/api/elements');
 			const data: IElement[][] = await response.json();
 			setElements(data);
+			changeSelected();
 		};
 		getElements();
 	}, []);

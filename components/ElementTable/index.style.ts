@@ -8,7 +8,7 @@ export const ElementTableStyled = styled.div<Props>`
 	display: flex;
 	flex-direction: column;
 	background-color: ${(props) => props.backgroundColor};
-	justify-content: center;
+	justify-content: space-between;
 	box-sizing: border-box;
 	margin: 1px;
 	min-width: 80px;

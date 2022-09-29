@@ -18,7 +18,7 @@ type Props = {
 			value: string;
 		};
 	}) => void;
-	changeSelected: (value: string) => void;
+	changeSelected: () => void;
 	selected: string;
 };
 
@@ -36,13 +36,16 @@ const PeriodicTable = ({
 					<h1>Periodic Table</h1>
 				</div>
 			</HeaderStyled>
-			<input
-				onChange={changeName}
-				className='type-element'
-				type='text'
-				placeholder='Element...'
-				value={name}
-			/>
+			<div>
+				<input
+					onChange={changeName}
+					className='type-element'
+					type='text'
+					placeholder='Element...'
+					value={name}
+				/>
+				<button onClick={changeSelected}>Random</button>
+			</div>
 			{elements.map((element, index) => {
 				return (
 					<RowTableStyled key={index}>
@@ -62,7 +65,6 @@ const PeriodicTable = ({
 									weight={e.weight}
 									key={e.atomicNumber}
 									display={!!e.display}
-									changeSelected={changeSelected}
 									selected={selected}
 								/>
 							);

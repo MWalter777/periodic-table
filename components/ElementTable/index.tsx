@@ -10,7 +10,6 @@ type Props = {
 	name: string;
 	weight: number;
 	display: boolean;
-	changeSelected: (value: string) => void;
 	selected: string;
 };
 
@@ -21,22 +20,18 @@ const ElementTable = ({
 	symbolTable,
 	weight,
 	display,
-	changeSelected,
 	selected,
 }: Props) => {
 	return (
 		<ElementTableStyled
 			backgroundColor={backgroundColor}
-			/* onClick={() => {
-				!display && changeSelected(name === selected ? '' : name);
-			}} */
-			className={`${name === selected ? 'selected' : ''} ${
+			className={`${name.toLowerCase() === selected ? 'selected' : ''} ${
 				display ? '' : 'hide'
 			}`}
 		>
+			<sup className='atomic-number'>{atomicNumber}</sup>
 			{display && (
 				<>
-					<sup className='atomic-number'>{atomicNumber}</sup>
 					<h1 className='symbol-table'>{symbolTable}</h1>
 					<sub>{getElementName(name.toLowerCase() as keysElements)[0]}</sub>
 					<sub>{weight}</sub>
