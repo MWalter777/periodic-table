@@ -1,5 +1,7 @@
+import PeriodicTable from 'components/PeriodicTable';
+
 const Home = () => {
-	return <div>Home</div>;
+	return <PeriodicTable />;
 };
 
 export default Home;
