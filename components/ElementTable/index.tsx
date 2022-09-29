@@ -11,6 +11,7 @@ type Props = {
 	weight: number;
 	display: boolean;
 	selected: string;
+	changeSelected: (name?: string) => void;
 };
 
 const ElementTable = ({
@@ -21,10 +22,12 @@ const ElementTable = ({
 	weight,
 	display,
 	selected,
+	changeSelected,
 }: Props) => {
 	return (
 		<ElementTableStyled
 			backgroundColor={backgroundColor}
+			onClick={() => changeSelected(name.toLowerCase())}
 			className={`${name.toLowerCase() === selected ? 'selected' : ''} ${
 				display ? '' : 'hide'
 			}`}

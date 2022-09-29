@@ -1,5 +1,5 @@
 import PeriodicTable from 'components/PeriodicTable';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { IElement } from 'interfaces/IElement';
 import { elementsParser, keysElements } from 'data/parserElements';
 
@@ -7,6 +7,7 @@ const Home = () => {
 	const [name, setName] = useState('');
 	const [selected, setSelected] = useState('');
 	const [selectedElements, setSelectedElements] = useState<string[]>([]);
+	const focusRef = useRef<HTMLInputElement>(null);
 	const [allElements, setAllElements] = useState<string[]>(
 		Object.keys(elementsParser)
 	);
@@ -44,10 +45,12 @@ const Home = () => {
 		if (name) findElement(name);
 	}, [name]);
 
-	const changeSelected = () => {
-		const randomElement =
-			allElements[Math.floor(Math.random() * allElements.length)];
+	const changeSelected = (name?: string) => {
+		const randomElement = name
+			? name
+			: allElements[Math.floor(Math.random() * allElements.length)];
 		setSelected(randomElement);
+		focusRef.current?.focus();
 	};
 
 	useEffect(() => {
@@ -67,6 +70,7 @@ const Home = () => {
 			changeName={changeName}
 			elements={elements}
 			selected={selected}
+			focusRef={focusRef}
 		/>
 	);
 };

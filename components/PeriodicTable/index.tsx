@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { RefObject } from 'react';
 import ElementTable from 'components/ElementTable';
 import EmptyElement from 'components/ElementTable/EmptyElement';
 import { IElement } from 'interfaces/IElement';
@@ -18,8 +18,9 @@ type Props = {
 			value: string;
 		};
 	}) => void;
-	changeSelected: () => void;
+	changeSelected: (name?: string) => void;
 	selected: string;
+	focusRef: RefObject<HTMLInputElement>;
 };
 
 const PeriodicTable = ({
@@ -28,6 +29,7 @@ const PeriodicTable = ({
 	name,
 	changeSelected,
 	selected,
+	focusRef,
 }: Props) => {
 	return (
 		<PeriodicTableStyled>
@@ -36,15 +38,18 @@ const PeriodicTable = ({
 					<h1>Periodic Table</h1>
 				</div>
 			</HeaderStyled>
-			<div>
+			<div className='input-control'>
 				<input
 					onChange={changeName}
 					className='type-element'
 					type='text'
 					placeholder='Element...'
 					value={name}
+					ref={focusRef}
 				/>
-				<button onClick={changeSelected}>Random</button>
+				<button className='btn-random' onClick={() => changeSelected()}>
+					Random
+				</button>
 			</div>
 			{elements.map((element, index) => {
 				return (
@@ -66,6 +71,7 @@ const PeriodicTable = ({
 									key={e.atomicNumber}
 									display={!!e.display}
 									selected={selected}
+									changeSelected={changeSelected}
 								/>
 							);
 						})}

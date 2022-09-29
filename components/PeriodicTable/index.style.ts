@@ -5,12 +5,31 @@ export const PeriodicTableStyled = styled.div`
 	min-height: 100vh;
 	padding: 0 30px 30px 30px;
 	overflow-x: auto;
+
+	.input-control {
+		display: flex;
+		align-items: baseline;
+		width: 60%;
+		justify-content: space-between;
+	}
 	.type-element {
 		margin-bottom: 20px;
 		border: none;
 		outline: none;
 		border-bottom: 1px solid green;
 		font-size: 20px;
+	}
+	.btn-random {
+		background-color: #50d050;
+		display: flex;
+		color: #fff;
+		padding: 10px;
+		min-width: 70px;
+		border-radius: 10px;
+		border: none;
+		:hover {
+			cursor: pointer;
+		}
 	}
 `;
 
