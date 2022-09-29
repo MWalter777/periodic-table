@@ -1,4 +1,6 @@
+import { keysElements } from 'data/parserElements';
 import React from 'react';
+import { getElementName } from 'utils/getElementName';
 import { ElementTableStyled } from './index.style';
 
 type Props = {
@@ -8,6 +10,8 @@ type Props = {
 	name: string;
 	weight: number;
 	display: boolean;
+	changeSelected: (value: string) => void;
+	selected: string;
 };
 
 const ElementTable = ({
@@ -17,14 +21,22 @@ const ElementTable = ({
 	symbolTable,
 	weight,
 	display,
+	changeSelected,
+	selected,
 }: Props) => {
 	return (
-		<ElementTableStyled backgroundColor={backgroundColor}>
+		<ElementTableStyled
+			backgroundColor={backgroundColor}
+			onClick={() => {
+				!display && changeSelected(name === selected ? '' : name);
+			}}
+			className={`${name === selected ? 'selected' : ''}`}
+		>
 			{display && (
 				<>
 					<sup className='atomic-number'>{atomicNumber}</sup>
 					<h1 className='symbol-table'>{symbolTable}</h1>
-					<sub>{name}</sub>
+					<sub>{getElementName(name.toLowerCase() as keysElements)[0]}</sub>
 					<sub>{weight}</sub>
 				</>
 			)}

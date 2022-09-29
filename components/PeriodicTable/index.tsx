@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import ElementTable from 'components/ElementTable';
 import EmptyElement from 'components/ElementTable/EmptyElement';
 import { IElement } from 'interfaces/IElement';
@@ -18,9 +18,17 @@ type Props = {
 			value: string;
 		};
 	}) => void;
+	changeSelected: (value: string) => void;
+	selected: string;
 };
 
-const PeriodicTable = ({ elements, changeName, name }: Props) => {
+const PeriodicTable = ({
+	elements,
+	changeName,
+	name,
+	changeSelected,
+	selected,
+}: Props) => {
 	return (
 		<PeriodicTableStyled>
 			<HeaderStyled>
@@ -38,8 +46,13 @@ const PeriodicTable = ({ elements, changeName, name }: Props) => {
 			{elements.map((element, index) => {
 				return (
 					<RowTableStyled key={index}>
-						{element.map((e) => {
-							if (e.atomicNumber === 0) return <EmptyElement />;
+						{element.map((e, index2) => {
+							if (e.atomicNumber < 0)
+								return (
+									<EmptyElement
+										key={`${index}-key-${e.atomicNumber * index2}`}
+									/>
+								);
 							return (
 								<ElementTable
 									atomicNumber={e.atomicNumber}
@@ -49,6 +62,8 @@ const PeriodicTable = ({ elements, changeName, name }: Props) => {
 									weight={e.weight}
 									key={e.atomicNumber}
 									display={!!e.display}
+									changeSelected={changeSelected}
+									selected={selected}
 								/>
 							);
 						})}

@@ -24,6 +24,12 @@ export const ElementTableStyled = styled.div<Props>`
 	sub {
 		font-size: x-small;
 	}
+
+	&.selected {
+		transform: scale(1.05);
+		opacity: 0.5;
+	}
+
 	@media (max-width: 1280px) {
 		min-width: 60px;
 		height: 60px;
