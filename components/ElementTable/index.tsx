@@ -7,6 +7,7 @@ type Props = {
 	symbolTable: string;
 	name: string;
 	weight: number;
+	display: boolean;
 };
 
 const ElementTable = ({
@@ -15,13 +16,18 @@ const ElementTable = ({
 	name,
 	symbolTable,
 	weight,
+	display,
 }: Props) => {
 	return (
 		<ElementTableStyled backgroundColor={backgroundColor}>
-			<sup className='atomic-number'>{atomicNumber}</sup>
-			<h1 className='symbol-table'>{symbolTable}</h1>
-			<sub>{name}</sub>
-			<sub>{weight}</sub>
+			{display && (
+				<>
+					<sup className='atomic-number'>{atomicNumber}</sup>
+					<h1 className='symbol-table'>{symbolTable}</h1>
+					<sub>{name}</sub>
+					<sub>{weight}</sub>
+				</>
+			)}
 		</ElementTableStyled>
 	);
 };

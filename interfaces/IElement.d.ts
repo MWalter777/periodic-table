@@ -4,4 +4,5 @@ export interface IElement {
 	symbolTable: string;
 	name: string;
 	weight: number;
+	display?: boolean;
 }
