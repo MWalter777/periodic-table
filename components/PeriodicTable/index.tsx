@@ -1,4 +1,5 @@
 import ElementTable from 'components/ElementTable';
+import EmptyElement from 'components/ElementTable/EmptyElement';
 import React from 'react';
 import {
 	HeaderStyled,
@@ -15,6 +16,13 @@ const PeriodicTable = () => {
 				</div>
 			</HeaderStyled>
 			<RowTableStyled>
+				<ElementTable
+					backgroundColor='#f1f1f1'
+					weight={40.796}
+					atomicNumber={1}
+					name='Hydrogen'
+					symbolTable='H'
+				/>
 				<ElementTable
 					backgroundColor='#f1f1f1'
 					weight={40.796}
