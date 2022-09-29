@@ -24,4 +24,11 @@ export const ElementTableStyled = styled.div<Props>`
 	sub {
 		font-size: x-small;
 	}
+	@media (max-width: 1280px) {
+		min-width: 60px;
+		height: 60px;
+		.symbol-table {
+			font-size: medium;
+		}
+	}
 `;
