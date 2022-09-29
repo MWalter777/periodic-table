@@ -1,12 +1,27 @@
 import ElementTable from 'components/ElementTable';
 import React from 'react';
-import { PeriodicTableStyled, RowTableStyled } from './index.style';
+import {
+	HeaderStyled,
+	PeriodicTableStyled,
+	RowTableStyled,
+} from './index.style';
 
 const PeriodicTable = () => {
 	return (
 		<PeriodicTableStyled>
+			<HeaderStyled>
+				<div>
+					<h1>Periodic Table</h1>
+				</div>
+			</HeaderStyled>
 			<RowTableStyled>
-				<ElementTable />
+				<ElementTable
+					backgroundColor='#f1f1f1'
+					weight={40.796}
+					atomicNumber={1}
+					name='Hydrogen'
+					symbolTable='H'
+				/>
 			</RowTableStyled>
 		</PeriodicTableStyled>
 	);
