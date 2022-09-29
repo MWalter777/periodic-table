@@ -1,8 +1,15 @@
+import ElementTable from 'components/ElementTable';
 import React from 'react';
-import { PeriodicTableStyled } from './index.style';
+import { PeriodicTableStyled, RowTableStyled } from './index.style';
 
 const PeriodicTable = () => {
-	return <PeriodicTableStyled>PeriodicTable</PeriodicTableStyled>;
+	return (
+		<PeriodicTableStyled>
+			<RowTableStyled>
+				<ElementTable />
+			</RowTableStyled>
+		</PeriodicTableStyled>
+	);
 };
 
 export default PeriodicTable;

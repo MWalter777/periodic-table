@@ -1,3 +1,7 @@
-import Styled from 'styled-components';
+import styled from 'styled-components';
 
-export const PeriodicTableStyled = Styled.div``;
+export const PeriodicTableStyled = styled.div`
+	background-color: red;
+`;
+
+export const RowTableStyled = styled.div``;
