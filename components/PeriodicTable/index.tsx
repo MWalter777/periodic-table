@@ -1,13 +1,18 @@
+import React from 'react';
 import ElementTable from 'components/ElementTable';
 import EmptyElement from 'components/ElementTable/EmptyElement';
-import React from 'react';
+import { IElement } from 'interfaces/IElement';
 import {
 	HeaderStyled,
 	PeriodicTableStyled,
 	RowTableStyled,
 } from './index.style';
 
-const PeriodicTable = () => {
+type Props = {
+	elements: IElement[][];
+};
+
+const PeriodicTable = ({ elements }: Props) => {
 	return (
 		<PeriodicTableStyled>
 			<HeaderStyled>
@@ -16,20 +21,18 @@ const PeriodicTable = () => {
 				</div>
 			</HeaderStyled>
 			<RowTableStyled>
-				<ElementTable
-					backgroundColor='#f1f1f1'
-					weight={40.796}
-					atomicNumber={1}
-					name='Hydrogen'
-					symbolTable='H'
-				/>
-				<ElementTable
-					backgroundColor='#f1f1f1'
-					weight={40.796}
-					atomicNumber={1}
-					name='Hydrogen'
-					symbolTable='H'
-				/>
+				{elements.map((element) => {
+					return element.map((e) => (
+						<ElementTable
+							atomicNumber={e.atomicNumber}
+							backgroundColor={e.backgroundColor}
+							name={e.name}
+							symbolTable={e.symbolTable}
+							weight={e.weight}
+							key={e.atomicNumber}
+						/>
+					));
+				})}
 			</RowTableStyled>
 		</PeriodicTableStyled>
 	);
