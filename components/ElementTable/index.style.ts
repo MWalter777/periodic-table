@@ -9,7 +9,7 @@ export const ElementTableStyled = styled.div<Props>`
 	flex-direction: column;
 	background-color: ${(props) => props.backgroundColor};
 	justify-content: center;
-	width: 80px;
+	min-width: 80px;
 	height: 80px;
 	padding-left: 5px;
 	.symbol-table {

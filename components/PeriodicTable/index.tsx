@@ -20,20 +20,23 @@ const PeriodicTable = ({ elements }: Props) => {
 					<h1>Periodic Table</h1>
 				</div>
 			</HeaderStyled>
-			<RowTableStyled>
-				{elements.map((element) => {
-					return element.map((e) => (
-						<ElementTable
-							atomicNumber={e.atomicNumber}
-							backgroundColor={e.backgroundColor}
-							name={e.name}
-							symbolTable={e.symbolTable}
-							weight={e.weight}
-							key={e.atomicNumber}
-						/>
-					));
-				})}
-			</RowTableStyled>
+
+			{elements.map((element, index) => {
+				return (
+					<RowTableStyled key={index}>
+						{element.map((e) => (
+							<ElementTable
+								atomicNumber={e.atomicNumber}
+								backgroundColor={e.backgroundColor}
+								name={e.name}
+								symbolTable={e.symbolTable}
+								weight={e.weight}
+								key={e.atomicNumber}
+							/>
+						))}
+					</RowTableStyled>
+				);
+			})}
 		</PeriodicTableStyled>
 	);
 };

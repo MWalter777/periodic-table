@@ -4,6 +4,7 @@ export const PeriodicTableStyled = styled.div`
 	width: 100%;
 	min-height: 100vh;
 	padding: 0 30px 0 30px;
+	overflow-x: auto;
 `;
 
 export const HeaderStyled = styled.div`
@@ -23,4 +24,7 @@ export const HeaderStyled = styled.div`
 export const RowTableStyled = styled.div`
 	display: flex;
 	justify-content: space-between;
+	margin-top: 20px;
+	max-width: 100%;
+	overflow-x: hidden;
 `;
