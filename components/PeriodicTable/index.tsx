@@ -24,16 +24,19 @@ const PeriodicTable = ({ elements }: Props) => {
 			{elements.map((element, index) => {
 				return (
 					<RowTableStyled key={index}>
-						{element.map((e) => (
-							<ElementTable
-								atomicNumber={e.atomicNumber}
-								backgroundColor={e.backgroundColor}
-								name={e.name}
-								symbolTable={e.symbolTable}
-								weight={e.weight}
-								key={e.atomicNumber}
-							/>
-						))}
+						{element.map((e) => {
+							if (e.atomicNumber === 0) return <EmptyElement />;
+							return (
+								<ElementTable
+									atomicNumber={e.atomicNumber}
+									backgroundColor={e.backgroundColor}
+									name={e.name}
+									symbolTable={e.symbolTable}
+									weight={e.weight}
+									key={e.atomicNumber}
+								/>
+							);
+						})}
 					</RowTableStyled>
 				);
 			})}

@@ -2,6 +2,16 @@
 import { IElement } from 'interfaces/IElement';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
+const getEmptyElements = (quantity: number): IElement[] => {
+	return new Array(quantity).fill({
+		atomicNumber: 0,
+		symbolTable: '',
+		name: '',
+		weight: 0,
+		backgroundColor: '#fff',
+	});
+};
+
 const elements: IElement[][] = [
 	[
 		{
@@ -11,6 +21,7 @@ const elements: IElement[][] = [
 			name: 'Hydrogen',
 			weight: 1.0079,
 		},
+		...getEmptyElements(16),
 		{
 			atomicNumber: 2,
 			symbolTable: 'He',
@@ -34,6 +45,7 @@ const elements: IElement[][] = [
 			name: 'Beryllium',
 			weight: 9.0122,
 		},
+		...getEmptyElements(10),
 		{
 			atomicNumber: 5,
 			symbolTable: 'B',
@@ -92,6 +104,7 @@ const elements: IElement[][] = [
 			name: 'Magnesium',
 			weight: 24.305,
 		},
+		...getEmptyElements(10),
 		{
 			atomicNumber: 13,
 			symbolTable: 'Al',
@@ -410,6 +423,7 @@ const elements: IElement[][] = [
 			name: 'Barium',
 			weight: 137.327,
 		},
+		...getEmptyElements(1),
 		{
 			atomicNumber: 72,
 			symbolTable: 'Hf',
@@ -531,6 +545,7 @@ const elements: IElement[][] = [
 			name: 'Radium',
 			weight: 226,
 		},
+		...getEmptyElements(1),
 		{
 			atomicNumber: 104,
 			symbolTable: 'Rf',
@@ -638,6 +653,7 @@ const elements: IElement[][] = [
 		},
 	],
 	[
+		...getEmptyElements(3),
 		{
 			atomicNumber: 57,
 			symbolTable: 'La',
@@ -745,6 +761,7 @@ const elements: IElement[][] = [
 		},
 	],
 	[
+		...getEmptyElements(3),
 		{
 			atomicNumber: 89,
 			symbolTable: 'Ac',

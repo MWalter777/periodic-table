@@ -24,7 +24,5 @@ export const HeaderStyled = styled.div`
 export const RowTableStyled = styled.div`
 	display: flex;
 	justify-content: space-between;
-	margin-top: 20px;
 	max-width: 100%;
-	overflow-x: hidden;
 `;
