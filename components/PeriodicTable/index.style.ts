@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const PeriodicTableStyled = styled.div`
 	width: 100%;
 	min-height: 100vh;
-	padding: 0 30px 0 30px;
+	padding: 0 30px 30px 30px;
 	overflow-x: auto;
 `;
 
