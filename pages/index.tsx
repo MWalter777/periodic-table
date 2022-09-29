@@ -41,8 +41,6 @@ const Home = () => {
 		setSelected(value);
 	};
 
-	console.log({ selected });
-
 	useEffect(() => {
 		const getElements = async () => {
 			const response = await fetch('/api/elements');

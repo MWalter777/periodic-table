@@ -25,11 +25,13 @@ export const ElementTableStyled = styled.div<Props>`
 		font-size: x-small;
 	}
 
+	&.hide {
+		background-color: #ccc;
+	}
 	&.selected {
 		transform: scale(1.05);
-		opacity: 0.5;
+		background-color: ${(props) => props.backgroundColor};
 	}
-
 	@media (max-width: 1280px) {
 		min-width: 60px;
 		height: 60px;

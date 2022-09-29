@@ -34,7 +34,7 @@ export const elementsParser = {
 	arsenic: ['Arsénico', 'arsenico', 'arsenic'],
 	selenium: ['Selenio', 'selenio', 'selenium'],
 	bromine: ['Bromo', 'bromo', 'bromine'],
-	krypton: ['Criptón', 'criptón', 'krypton'],
+	krypton: ['Criptón', 'cripton', 'krypton'],
 	rubidium: ['Rubidio', 'rubidio', 'rubidium'],
 	strontium: ['Estroncio', 'estroncio', 'strontium'],
 	yttrium: ['Itrio', 'itrio', 'yttrium'],

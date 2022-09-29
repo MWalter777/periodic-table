@@ -27,10 +27,12 @@ const ElementTable = ({
 	return (
 		<ElementTableStyled
 			backgroundColor={backgroundColor}
-			onClick={() => {
+			/* onClick={() => {
 				!display && changeSelected(name === selected ? '' : name);
-			}}
-			className={`${name === selected ? 'selected' : ''}`}
+			}} */
+			className={`${name === selected ? 'selected' : ''} ${
+				display ? '' : 'hide'
+			}`}
 		>
 			{display && (
 				<>
