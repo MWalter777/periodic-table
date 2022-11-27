@@ -24,8 +24,9 @@ const Home = () => {
 			const newElements = elements.map((element) => {
 				return element.map((e) => {
 					if (
-						!e.display &&
-						(!selected || resultName[0] === selected.toLowerCase()) &&
+						(!e.display &&
+							(!selected || resultName[0] === selected.toLowerCase()) &&
+							e.name.toLowerCase() === resultName[0]) ||
 						e.name.toLowerCase() === resultName[0]
 					) {
 						setName('');
